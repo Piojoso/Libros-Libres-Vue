@@ -2,7 +2,7 @@
   <CustomHeader />
 
   <div class="text-2xl font-bold">
-    Hola Mundo
+    {{ message }}
   </div>
 
   <Button @click="console.log('Hola Mundo')">
@@ -12,6 +12,9 @@
 
 <script setup lang="ts">
 import { Button } from '@/components/ui/button';
-import CustomHeader from '@/modules/common/components/CustomHeader.vue';
 
+import CustomHeader from '@/modules/common/components/CustomHeader.vue';
+import { useHomeStore } from '../store/home.store';
+
+const { message } = useHomeStore()
 </script>
