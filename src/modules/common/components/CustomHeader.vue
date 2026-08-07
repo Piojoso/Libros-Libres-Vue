@@ -3,7 +3,7 @@
     <h1 class="flex-1 text-2xl font-light">LibrosLibres.com</h1>
 
     <div class="flex-5">
-      <InputGroup class="w-[500px] m-auto">
+      <InputGroup class="w-125 m-auto">
         <InputGroupInput placeholder="Search..." />
         <InputGroupAddon>
           <SearchIcon />
