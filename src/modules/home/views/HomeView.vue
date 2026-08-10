@@ -1,18 +1,10 @@
 <template>
   <CustomHeader />
-  <!-- 
-  <div class="text-2xl font-bold">
-    {{ message }}
-  </div>
 
-  <Button @click=""> Hola Mundo </Button> -->
+  <HomeCarousel />
 </template>
 
 <script setup lang="ts">
-// import { Button } from "@/components/ui/button";
-
 import CustomHeader from "@/modules/common/components/CustomHeader.vue";
-// import { useHomeStore } from "../store/home.store";
-
-// const { message } = useHomeStore();
+import HomeCarousel from "@/modules/home/components/HomeCarousel.vue";
 </script>
