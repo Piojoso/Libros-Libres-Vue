@@ -1,2 +1,5 @@
+minimumReleaseAge: 10080
+saveExact: true
+
 allowBuilds:
-  vue-demi: set this to true or false
+  vue-demi: true
