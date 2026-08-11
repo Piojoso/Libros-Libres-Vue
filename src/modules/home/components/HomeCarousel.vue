@@ -1,27 +1,24 @@
 <template>
-  <div class="mx-50">
-    <Carousel
-      :plugins="[plugin]"
-      @mouseenter="plugin.stop"
-      @mouseleave="[plugin.reset(), plugin.play(), console.log('Running')]"
-    >
-      <CarouselContent>
-        <CarouselItem v-for="(_, index) in 5" :key="index">
-          <div class="p-3">
-            <Card>
-              <CardContent
-                class="flex aspect-video items-center justify-center p-6"
-              >
-                <span class="text-4xl font-semibold">{{ index + 1 }}</span>
-              </CardContent>
-            </Card>
-          </div>
-        </CarouselItem>
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-  </div>
+  <Carousel
+    class="mx-50"
+    :plugins="[plugin]"
+    @mouseenter="plugin.stop"
+    @mouseleave="[plugin.reset(), plugin.play(), console.log('Running')]"
+  >
+    <CarouselContent>
+      <CarouselItem v-for="book in store.carouselBooks" :key="book.book_title">
+        <div class="p-3">
+          <Card class="py-0">
+            <CardContent class="flex items-center justify-center p-6">
+              <HomeBookCarousel :book="book" />
+            </CardContent>
+          </Card>
+        </div>
+      </CarouselItem>
+    </CarouselContent>
+    <!-- <CarouselPrevious /> -->
+    <!-- <CarouselNext /> -->
+  </Carousel>
 </template>
 
 <script setup lang="ts">
@@ -31,13 +28,17 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  // CarouselNext,
+  // CarouselPrevious,
 } from "@/components/ui/carousel";
+import HomeBookCarousel from "./HomeBookCarousel.vue";
+import { useHomeStore } from "../store/home.store.ts";
 
 const plugin = Autoplay({
   delay: 5000,
   stopOnMouseEnter: true,
   stopOnInteraction: false,
 });
+
+const store = useHomeStore();
 </script>
